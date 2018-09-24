@@ -5,19 +5,22 @@ using UnityEngine;
 public class PathFinding : MonoBehaviour {
 
     Grid grid;
+    public Unit unit;
     public Transform seeker, target;
+    public float speed;
 
     private void Awake()
     {
         grid = GetComponent<Grid>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         FindPath(seeker.position, target.position);
+        
     }
 
-    void FindPath(Vector3 startPos, Vector3 targetPos)
+    public void FindPath(Vector3 startPos, Vector3 targetPos)
     {
         Node startNode = grid.NodeFromWorldPoint(startPos);
         Node targetNode = grid.NodeFromWorldPoint(targetPos);
@@ -81,6 +84,8 @@ public class PathFinding : MonoBehaviour {
         path.Reverse();
 
         grid.path = path;
+        unit.path = path;
+        
     }
 
     int GetDistance(Node nodeA, Node nodeB)
