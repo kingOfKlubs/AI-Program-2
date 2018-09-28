@@ -5,10 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Node {
 
-    //what do we need to define our Nodes?
 
-    //we need to know if it is walkable 
-    //we need to know what the position is in the world
     public bool walkable;
     public Vector3 worldPos;
 
