@@ -32,7 +32,7 @@ public class Node
 
     public int fCost { get { return gCost + hCost; } }
 
-    public float DeltaE { get { return 1 + Mathf.Exp(deltaE / t); } }
+    public float DeltaE { get { return 1 + Mathf.Exp(-deltaE / t); } }
 
 
 
