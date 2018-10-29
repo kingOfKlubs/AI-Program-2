@@ -10,15 +10,14 @@ public class puzzleNode : MonoBehaviour
     public int x;
     public int y;
 
+    public float deltaE;
+    public float t;
+
     public puzzleNode()
     {
         neighbours = new List<puzzleNode>();
     }
-
-    public float DistanceTo(puzzleNode n)
-    {
-        return Vector2.Distance(new Vector2(x, y), new Vector2(n.x, n.y));
-    }
+    public float DeltaE { get { return 1 + Mathf.Exp(deltaE / t); } }
 }
 
 

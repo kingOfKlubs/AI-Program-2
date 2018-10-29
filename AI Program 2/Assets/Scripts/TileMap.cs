@@ -65,7 +65,7 @@ public class TileMap : MonoBehaviour
     {
         TileType tt = tileTypes[Tiles[x, y]];
 
-        if(CanEnterTile(x,y) == false)
+        if (CanEnterTile(x, y) == false)
         {
             return Mathf.Infinity;
         }
@@ -113,7 +113,7 @@ public class TileMap : MonoBehaviour
             {
                 TileType tt = tileTypes[Tiles[x, y]];
                 GameObject go = Instantiate(tt.CubePrefab, new Vector3(x, y, 0), Quaternion.identity);
-               // ClickableTile ct = go.GetComponent<ClickableTile>();
+                // ClickableTile ct = go.GetComponent<ClickableTile>();
                 //ct.tileX = x;
                 //ct.tileY = y;
                 //ct.map = this;
@@ -140,81 +140,73 @@ public class TileMap : MonoBehaviour
     }
 
 
-    //uses dijikstra algorithm to find the shortest path to tile
-    //public void GeneratePathTo(int x, int y)
-    //{
-    //    selectedUnit.GetComponent<Unit1>().currentPath = null;
+    public void SimulatedAnnealing(float Temperature, puzzleNode[,] grid)
+    {
 
-        
+        //    Dictionary<puzzleNode, float> Temperature = new Dictionary<puzzleNode, float>();
+        //    Dictionary<puzzleNode, puzzleNode> prev = new Dictionary<puzzleNode, puzzleNode>();
 
-    //    if(CanEnterTile(x,y) == false)
-    //    {
-    //        return;
-    //    }
+        //    List<puzzleNode> unvisted = new List<puzzleNode>();
 
-    //    Dictionary<puzzleNode, float> dist = new Dictionary<puzzleNode, float>();
-    //    Dictionary<puzzleNode, puzzleNode> prev = new Dictionary<puzzleNode, puzzleNode>();
+        //    puzzleNode source = graph[selectedUnit.GetComponent<Unit1>().tileX,selectedUnit.GetComponent<Unit1>().tileY];
+        //    puzzleNode target = graph[x, y];
 
-    //    List<puzzleNode> unvisted = new List<puzzleNode>();
+        //    [source] = 0;
+        //    prev[source] = null;
 
-    //    puzzleNode source = graph[selectedUnit.GetComponent<Unit1>().tileX,selectedUnit.GetComponent<Unit1>().tileY];
-    //    puzzleNode target = graph[x, y];
+        //    foreach (puzzleNode v in graph)
+        //    {
+        //        if (v != source)
+        //        {
+        //            dist[v] = Mathf.Infinity;
+        //            prev[v] = null;
+        //        }
+        //        unvisted.Add(v);
+        //    }
 
-    //    dist[source] = 0;
-    //    prev[source] = null;
+        //    while (unvisted.Count > 0)
+        //    {
+        //        puzzleNode u = null;
+        //        foreach (puzzleNode possibleU in unvisted)
+        //        {
+        //            if (u == null || dist[possibleU] < dist[u])
+        //                u = possibleU;
+        //        }
+        //        if (u == target)
+        //        {
+        //            break;
+        //        }
+        //        unvisted.Remove(u);
 
-    //    foreach (puzzleNode v in graph)
-    //    {
-    //        if (v != source)
-    //        {
-    //            dist[v] = Mathf.Infinity;
-    //            prev[v] = null;
-    //        }
-    //        unvisted.Add(v);
-    //    }
+        //        foreach(puzzleNode v in u.neighbours)
+        //        {
+        //            float alt = dist[u] + CostToEnterTile(v.x,v.y);
+        //            if(alt < dist[v])
+        //            {
+        //                dist[v] = alt;
+        //                prev[v] = u;
+        //            }
+        //        }
+        //    }
 
-    //    while (unvisted.Count > 0)
-    //    {
-    //        puzzleNode u = null;
-    //        foreach (puzzleNode possibleU in unvisted)
-    //        {
-    //            if (u == null || dist[possibleU] < dist[u])
-    //                u = possibleU;
-    //        }
-    //        if (u == target)
-    //        {
-    //            break;
-    //        }
-    //        unvisted.Remove(u);
+        //    if (prev[target] == null)
+        //    {
+        //        return;
+        //    }
 
-    //        foreach(puzzleNode v in u.neighbours)
-    //        {
-    //            float alt = dist[u] + CostToEnterTile(v.x,v.y);
-    //            if(alt < dist[v])
-    //            {
-    //                dist[v] = alt;
-    //                prev[v] = u;
-    //            }
-    //        }
-    //    }
+        //    List<puzzleNode> currentPath = new List<puzzleNode>();
 
-    //    if (prev[target] == null)
-    //    {
-    //        return;
-    //    }
+        //    puzzleNode curr = target;
 
-    //    List<puzzleNode> currentPath = new List<puzzleNode>();
+        //    while (curr != null)
+        //    {
+        //        currentPath.Add(curr);
+        //        curr = prev[curr];
+        //    }
 
-    //    puzzleNode curr = target;
+        //    currentPath.Reverse();
 
-    //    while (curr != null)
-    //    {
-    //        currentPath.Add(curr);
-    //        curr = prev[curr];
-    //    }
-
-    //    currentPath.Reverse();
-
-    //    selectedUnit.GetComponent<Unit1>().currentPath = currentPath;
-    //}
+        //    selectedUnit.GetComponent<Unit1>().currentPath = currentPath;
+        //}
+    }
 }
